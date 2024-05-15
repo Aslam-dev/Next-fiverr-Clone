@@ -131,3 +131,5 @@ export default defineSchema({
         .index("by_user_gig", ["userId", "gigId"])
         .index("by_user", ["userId"]),
 });
+
+

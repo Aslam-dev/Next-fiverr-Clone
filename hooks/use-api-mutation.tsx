@@ -10,19 +10,18 @@ export const useApiMutation = (mutationFunction: any) => {
 
     const mutate = (payload: any) => {
         setPending(true);
-        return apiMutation(payload).finally(() => setPending(false)).then((result)=>{
+        return apiMutation(payload)
+        .then((result)=>{
             return result
         })
         .catch((error) =>{
             throw error
-        });
+        })
+        .finally(() => setPending(false))
     };
 
     return{
         mutate,
         pending,
     }
-
-
-
 };
